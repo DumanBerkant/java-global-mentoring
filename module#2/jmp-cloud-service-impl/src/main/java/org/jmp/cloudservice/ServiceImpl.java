@@ -17,13 +17,14 @@ public class ServiceImpl implements Service {
     List<Subscription> subscriptions = new ArrayList<>();
     List<User> users = new ArrayList<>();
 
-    public ServiceImpl(){
+    public ServiceImpl() {
         this.users.add(new User("Berkant", "Duman", LocalDate.of(1998, 4, 12)));
         this.users.add(new User("Berkant2", "Duman", LocalDate.of(1999, 5, 12)));
         this.users.add(new User("Berkant3", "Duman", LocalDate.of(2000, 6, 12)));
         this.users.add(new User("Berkant4", "Duman", LocalDate.of(2010, 7, 12)));
         this.users.add(new User("Berkant5", "Duman", LocalDate.of(2007, 8, 12)));
-        this.users = users.stream().collect(Collectors.toUnmodifiableList());
+        this.users = users.stream()
+                .collect(Collectors.toUnmodifiableList());
     }
 
     @Override
@@ -33,7 +34,10 @@ public class ServiceImpl implements Service {
 
     @Override
     public Subscription getSubscriptionByBankCardNumber(String number) throws NoSubscriptionException {
-        return subscriptions.stream().filter(s -> s.getBankCard().equals(number)).findFirst().orElseThrow(() -> new NoSubscriptionException("Subscription couldn't find"));
+        return subscriptions.stream()
+                .filter(s -> s.getBankCard().equals(number))
+                .findFirst()
+                .orElseThrow(() -> new NoSubscriptionException("Subscription couldn't find"));
     }
 
     @Override
@@ -43,14 +47,20 @@ public class ServiceImpl implements Service {
 
     @Override
     public List<Subscription> getAllSubscriptionsByCondition(Predicate<Subscription> predicate) {
-        return subscriptions.stream().filter(predicate).toList();
+        return subscriptions.stream()
+                .filter(predicate)
+                .toList();
     }
 
-    public double getAverageUsersAge(){
-        return getAllUsers().stream().mapToDouble(u -> ChronoUnit.YEARS.between(u.getBirthDate(), LocalDate.now())).average().getAsDouble();
+    public double getAverageUsersAge() {
+        return getAllUsers().stream()
+                .mapToDouble(u -> ChronoUnit.YEARS.between(u.getBirthDate(), LocalDate.now()))
+                .average()
+                .getAsDouble();
     }
 
-    public boolean isPayableUser(User user){
-       return getAllUsers().stream().anyMatch(u -> user.getName().equals(u.getName()) && ChronoUnit.YEARS.between(u.getBirthDate(), LocalDate.now()) > 18);
+    public boolean isPayableUser(User user) {
+        return getAllUsers().stream()
+                .anyMatch(u -> user.getName().equals(u.getName()) && ChronoUnit.YEARS.between(u.getBirthDate(), LocalDate.now()) > 18);
     }
 }
