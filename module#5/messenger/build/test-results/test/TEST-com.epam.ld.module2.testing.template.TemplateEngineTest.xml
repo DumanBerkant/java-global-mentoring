@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.epam.ld.module2.testing.template.TemplateEngineTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-12-07T06:50:53" hostname="EPTRANKW0020" time="0.028">
+  <properties/>
+  <testcase name="When_ReplacedThePlaceHolders_Expect_SystemSupportAllLatin1Chars()" classname="com.epam.ld.module2.testing.template.TemplateEngineTest" time="0.021"/>
+  <testcase name="When_VariableHasPlaceholderRegex_Expect_TemplatePassValue()" classname="com.epam.ld.module2.testing.template.TemplateEngineTest" time="0.003"/>
+  <testcase name="When_RuntimeVariablesGiven_Expect_ReplaceVariablesWithPlaceholders()" classname="com.epam.ld.module2.testing.template.TemplateEngineTest" time="0.001"/>
+  <testcase name="When_AtLeastOnePlaceholderVariableIsMissing_Expect_TemplateThrowAnException()" classname="com.epam.ld.module2.testing.template.TemplateEngineTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

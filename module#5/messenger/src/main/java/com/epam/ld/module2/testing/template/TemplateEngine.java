@@ -14,6 +14,30 @@ public class TemplateEngine {
      * @return the string
      */
     public String generateMessage(Template template, Client client) {
-        return null;
+        isAllPlaceHoldersProvided(template);
+
+        return replacePlaceHoldersWithValues(template);
     }
+
+    private String replacePlaceHoldersWithValues(Template template) {
+        String initialTemplate =  "Subject: #{subject}" +
+                "\n" +
+                "Topic: #{topic}" +
+                "\n" +
+                "To: #{to}" +
+                "\n" +
+                "Message: #{message}";
+
+        initialTemplate = initialTemplate.replace("#{subject}", template.getSubject());
+        initialTemplate = initialTemplate.replace("#{topic}", template.getTopic());
+        initialTemplate = initialTemplate.replace("#{message}", template.getMessage());
+
+        return initialTemplate;
+    }
+
+    private void isAllPlaceHoldersProvided(Template template){
+        if(template.getMessage() == null || template.getTopic() == null || template.getSubject() == null)
+            throw new IllegalArgumentException("All template placeholders must provide");
+    }
+
 }
