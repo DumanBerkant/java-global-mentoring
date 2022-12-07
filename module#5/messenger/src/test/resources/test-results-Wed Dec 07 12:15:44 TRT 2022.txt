@@ -1,0 +1,4 @@
+When_MessageSended_Except_generateMessageShouldCalledOnes(): SUCCESSFUL
+MessengerTest: SUCCESSFUL
+JUnit Jupiter: SUCCESSFUL
+JUnit Vintage: SUCCESSFUL

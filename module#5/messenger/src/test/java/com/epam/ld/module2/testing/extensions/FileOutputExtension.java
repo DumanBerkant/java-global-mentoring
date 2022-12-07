@@ -7,12 +7,11 @@ import org.junit.platform.engine.TestExecutionResult;
 import org.junit.platform.launcher.TestExecutionListener;
 import org.junit.platform.launcher.TestIdentifier;
 import org.junit.platform.launcher.TestPlan;
-import org.junit.platform.launcher.listeners.SummaryGeneratingListener;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDate;
+import java.util.Date;
 
 public class FileOutputExtension implements TestExecutionListener {
     private PrintWriter writer;
@@ -20,7 +19,10 @@ public class FileOutputExtension implements TestExecutionListener {
     @Override
     public void testPlanExecutionStarted(TestPlan testPlan) {
         try {
-            File outputFile = new File("src/test/resources/test-results-" + LocalDate.now().toString() + ".txt" );
+            File outputFile = new File(
+                    "src/test/resources/test-results-"
+                    + new Date().toString()
+                    + ".txt" );
             writer = new PrintWriter(outputFile);
         } catch (IOException e) {
 

@@ -15,7 +15,7 @@ public class TemplateEngine {
      */
     public String generateMessage(Template template, Client client) {
         isAllPlaceHoldersProvided(template);
-
+        isClientValid(client);
         return replacePlaceHoldersWithValues(template);
     }
 
@@ -38,6 +38,11 @@ public class TemplateEngine {
     private void isAllPlaceHoldersProvided(Template template){
         if(template.getMessage() == null || template.getTopic() == null || template.getSubject() == null)
             throw new IllegalArgumentException("All template placeholders must provide");
+    }
+
+    private void isClientValid(Client client){
+        if(client == null || client.getAddresses() == null)
+            throw new IllegalArgumentException("Client address must be defined");
     }
 
 }

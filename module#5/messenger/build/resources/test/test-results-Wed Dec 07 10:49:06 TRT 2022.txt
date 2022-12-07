@@ -1,0 +1,12 @@
+1 => address='berkant@duman.com', message='message1': SUCCESSFUL
+2 => address='berkantduman@outlook.com', message='message2': SUCCESSFUL
+When_ParametersAreValid_Expect_NotificationShouldPushToQueue(String, String): SUCCESSFUL
+1 => address='berkantduman.com', message='message1': SUCCESSFUL
+2 => address='berkantduma@noutlook.net', message='message2': SUCCESSFUL
+When_AddressDoesNotValid_Expect_ThrowInvalidArgumentException(String, String): SUCCESSFUL
+1 => address='berkant@duman.com', message='null': SUCCESSFUL
+2 => address='null', message='message2': SUCCESSFUL
+When_AtLeastOneParameterIsNull_Expect_ThrowNullPointerException(String, String): SUCCESSFUL
+MailServerTest: SUCCESSFUL
+JUnit Jupiter: SUCCESSFUL
+JUnit Vintage: SUCCESSFUL

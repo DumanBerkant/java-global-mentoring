@@ -11,10 +11,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TemplateEngineTest {
 
     TemplateEngine templateEngine;
+    Client client;
 
 
     @BeforeEach
     public void before() {
+        client = new Client();
+        client.setAddresses("deneme@deneme.com");
         this.templateEngine = new TemplateEngine();
     }
 
@@ -23,8 +26,6 @@ public class TemplateEngineTest {
     @Fast
     public void When_RuntimeVariablesGiven_Expect_ReplaceVariablesWithPlaceholders() {
         Template template = new Template("This is Subject", "Topic A", "This is my message to all world");
-        Client client = new Client();
-        client.setAddresses("deneme@deneme.com");
         String message = templateEngine.generateMessage(template, client);
 
         assertTrue(
@@ -37,16 +38,13 @@ public class TemplateEngineTest {
 
     @Test
     public void When_AtLeastOnePlaceholderVariableIsMissing_Expect_TemplateThrowAnException() {
-        TemplateEngine templateEngine = new TemplateEngine();
         Template template = new Template(null, "Topic A", null);
-        Client client = new Client();
-        client.setAddresses("deneme@deneme.com");
+
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
                 () -> templateEngine.generateMessage(template, client)
         );
 
-        // Use the assertEquals() method to check the properties of the thrown exception
         assertEquals("All template placeholders must provide", exception.getMessage());
         assertNull(exception.getCause());
 
@@ -55,8 +53,6 @@ public class TemplateEngineTest {
     @Test
     public void When_VariableHasPlaceholderRegex_Expect_TemplatePassValue() {
         Template template = new Template("This is Subject", "Topic A", "${tag}");
-        Client client = new Client();
-        client.setAddresses("deneme@deneme.com");
         String message = templateEngine.generateMessage(template, client);
 
         assertTrue(
@@ -68,13 +64,24 @@ public class TemplateEngineTest {
 
     @Test
     public void When_ReplacedThePlaceHolders_Expect_SystemSupportAllLatin1Chars() {
-        TemplateEngine templateEngine = new TemplateEngine();
         Template template = new Template("This is Subject", "Topic A", "This is my message to all world");
-        Client client = new Client();
-        client.setAddresses("deneme@deneme.com");
         String message = templateEngine.generateMessage(template, client);
 
         assertFalse(message.matches("[^\\x00-\\xFF]"));
+    }
+
+
+    @Test
+    public void When_ClientIsNotValid_Expect_ThrownAnException() {
+        Template template = new Template("This is a Subject", "Topic A", "This is my message");
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> templateEngine.generateMessage(template,  null)
+        );
+
+        assertEquals("Client address must be defined", exception.getMessage());
+        assertNull(exception.getCause());
     }
 
 

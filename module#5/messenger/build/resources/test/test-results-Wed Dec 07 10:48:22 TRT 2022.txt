@@ -1,0 +1,8 @@
+When_ReplacedThePlaceHolders_Expect_SystemSupportAllLatin1Chars(): SUCCESSFUL
+When_ClientIsNotValid_Expect_ThrownAnException(): SUCCESSFUL
+When_VariableHasPlaceholderRegex_Expect_TemplatePassValue(): SUCCESSFUL
+When_RuntimeVariablesGiven_Expect_ReplaceVariablesWithPlaceholders(): SUCCESSFUL
+When_AtLeastOnePlaceholderVariableIsMissing_Expect_TemplateThrowAnException(): SUCCESSFUL
+TemplateEngineTest: SUCCESSFUL
+JUnit Jupiter: SUCCESSFUL
+JUnit Vintage: SUCCESSFUL
