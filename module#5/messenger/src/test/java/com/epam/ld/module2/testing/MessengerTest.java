@@ -5,6 +5,9 @@ import com.epam.ld.module2.testing.template.TemplateEngine;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledOnJre;
+import org.junit.jupiter.api.condition.DisabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 import org.mockito.Mockito;
 
 public class MessengerTest {
@@ -50,14 +53,15 @@ public class MessengerTest {
 
 
     @Test
-    @Disabled
+    @DisabledOnOs(OS.WINDOWS)
     public void When_MessageSended_Expect_MailServerSendShouldBeCalled() {
         TemplateEngine templateEngine = Mockito.mock(TemplateEngine.class);
         MailServer mailServer = Mockito.mock(MailServer.class);
         Messenger messenger = new Messenger(mailServer, templateEngine);
         messenger.sendMessage(client, template);
 
-        Mockito.verify(mailServer, Mockito.times(1));
+        Mockito.verify(mailServer, Mockito.times(1))
+                .send(client.getAddresses(), templateEngine.generateMessage(template, client));
 
 
     }
