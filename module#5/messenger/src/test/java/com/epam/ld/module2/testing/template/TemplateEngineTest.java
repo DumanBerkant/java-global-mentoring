@@ -1,7 +1,7 @@
 package com.epam.ld.module2.testing.template;
 
 import com.epam.ld.module2.testing.Client;
-import com.epam.ld.module2.testing.Fast;
+import com.epam.ld.module2.testing.annotation.Fast;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

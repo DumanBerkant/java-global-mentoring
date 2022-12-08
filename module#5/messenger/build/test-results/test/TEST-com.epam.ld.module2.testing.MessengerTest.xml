@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.epam.ld.module2.testing.MessengerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-07T09:15:44" hostname="EPTRANKW0020" time="0.019">
-  <properties/>
-  <testcase name="When_MessageSended_Except_generateMessageShouldCalledOnes()" classname="com.epam.ld.module2.testing.MessengerTest" time="0.019"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

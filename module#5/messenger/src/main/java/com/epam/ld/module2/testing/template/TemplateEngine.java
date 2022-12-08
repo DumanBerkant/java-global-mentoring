@@ -24,8 +24,6 @@ public class TemplateEngine {
                 "\n" +
                 "Topic: #{topic}" +
                 "\n" +
-                "To: #{to}" +
-                "\n" +
                 "Message: #{message}";
 
         initialTemplate = initialTemplate.replace("#{subject}", template.getSubject());

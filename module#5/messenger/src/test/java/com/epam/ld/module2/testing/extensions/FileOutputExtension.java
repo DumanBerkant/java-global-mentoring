@@ -20,7 +20,7 @@ public class FileOutputExtension implements TestExecutionListener {
     public void testPlanExecutionStarted(TestPlan testPlan) {
         try {
             File outputFile = new File(
-                    "src/test/resources/test-results-"
+                    "src/test/resources/test-results/"
                     + new Date().toString()
                     + ".txt" );
             writer = new PrintWriter(outputFile);
