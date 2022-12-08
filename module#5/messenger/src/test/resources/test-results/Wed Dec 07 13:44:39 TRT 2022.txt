@@ -1,5 +1,0 @@
-When_MessageSended_Expect_generateMessageShouldBeCalled(): SUCCESSFUL
-When_MessageSended_Expect_generateMessageShouldReturnCorrectValue(): SUCCESSFUL
-MessengerTest: SUCCESSFUL
-JUnit Jupiter: SUCCESSFUL
-JUnit Vintage: SUCCESSFUL
