@@ -27,10 +27,13 @@ public class FJPMergeSort extends RecursiveAction {
 
         //invokeAll(f1, f2);
         f1.fork();
-        f2.compute();
+        f2.fork();
+
+        f1.join();
+        f2.join();
 
         merge(firstHalf, secondHalf, array);
-        f1.join();
+
     }
 
 

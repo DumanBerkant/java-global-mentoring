@@ -17,7 +17,8 @@ public class FJPFibonacci extends RecursiveTask<Integer> {
         FJPFibonacci f1 = new FJPFibonacci(n - 1);
         f1.fork();
         FJPFibonacci f2 = new FJPFibonacci(n - 2);
-        return f2.compute() + f1.join();
+        f2.fork();
+        return f2.join() + f1.join();
 
     }
 

@@ -28,11 +28,11 @@ public class ForkBlurMain {
                 " milliseconds.");
 
         BufferedImage dstImage =
-                new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+                new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
         dstImage.setRGB(0, 0, w, h, dst, 0, w);
 
 
-        String dstName = "test";
+        String dstName = "src/main/resources/blur.jpeg";
         File dstFile = new File(dstName);
         ImageIO.write(dstImage, "jpeg", dstFile);
 
