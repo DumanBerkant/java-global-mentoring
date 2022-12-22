@@ -51,7 +51,5 @@ public class MergeSortMain {
         double mergeFjpEnd = System.currentTimeMillis();
         System.out.format("\nFJP Merge Sort Time: %.3f ms \n", (mergeFjpEnd - mergeFjpStart));
 
-        scanner.interrupt();
-
     }
 }
