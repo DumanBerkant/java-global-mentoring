@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 public class ServiceImpl implements Service {
 
+    public static final int PAYABLE_USER = 18;
     List<Subscription> subscriptions = new ArrayList<>();
     List<User> users = new ArrayList<>();
 
@@ -61,6 +62,6 @@ public class ServiceImpl implements Service {
 
     public boolean isPayableUser(User user) {
         return getAllUsers().stream()
-                .anyMatch(u -> user.getName().equals(u.getName()) && ChronoUnit.YEARS.between(u.getBirthDate(), LocalDate.now()) > 18);
+                .anyMatch(u -> user.getName().equals(u.getName()) && ChronoUnit.YEARS.between(u.getBirthDate(), LocalDate.now()) > PAYABLE_USER);
     }
 }
