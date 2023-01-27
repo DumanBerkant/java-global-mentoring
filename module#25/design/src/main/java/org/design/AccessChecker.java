@@ -8,7 +8,7 @@ public class AccessChecker {
     }
     public static AccessChecker getInstance(){
         if (instance == null) {
-            return new AccessChecker();
+            instance = new AccessChecker();
         }
         return instance;
     }

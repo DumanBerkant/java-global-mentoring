@@ -6,7 +6,7 @@ public class ServerConfig {
 
     public static ServerConfig getInstance() {
         if (instance == null) {
-            return new ServerConfig();
+            instance = new ServerConfig();
         }
         return instance;
 
